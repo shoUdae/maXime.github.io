@@ -75,7 +75,7 @@ footer{color:var(--mute);font-size:14px;margin-top:44px}
 <div class="chips" id="chips"></div>
 </div>
 <section id="plain"><h2>The full portfolio</h2>
-<div class="st"><div><b data-n="6">0</b>projects</div><div><b data-n="12">0</b>skills</div><div><b data-n="3">0</b>milestones</div></div>
+<div class="st"><div><b data-n="16">0</b>projects</div><div><b data-n="33">0</b>skills</div><div><b data-n="3">0</b>milestones</div></div>
 <h3 class="sh">Pick a skill, see where I used it</h3>
 <div class="sk" id="skl"></div><p class="tag" id="sel" aria-live="polite"></p>
 <div class="grid" id="pg"></div>
@@ -92,11 +92,21 @@ var PR=[["HighQualityTransfers","Shopify · Horizon · Liquid · JavaScript · G
 ["HR Recruitment Portal","MongoDB · Express · React · Node.js · Vite · Tailwind","<p>Recruitment platform with an admin dashboard and public job portal.</p><ul><li>Role-based admin and candidate flows with JWT authentication.</li><li>Job creation, editing, archiving and deletion.</li><li>Resume uploads with Multer.</li><li>Google reCAPTCHA v2 with server-side verification and tests.</li><li>Separate frontend and backend repositories, deployed with Coolify.</li></ul>"],
 ["Doctor–Patient API","Java · Spring Boot · REST","<p>A backend project for doctor and patient workflows, built with Spring Boot.</p>"],
 ["AI Discord Bot","Python · AI integration · Replit","<p>A personal project: a Python Discord bot with AI features, built on Replit.</p>"],
-["Agile Digital Edge","WordPress · PHP · CSS · HTML","<p>WordPress blog and technical content publishing: long-form articles with clear heading hierarchy, lists and images, plus custom blog templates and child-theme files.</p><p><a href=\"https://blog.agiledigitaledge.com/\" target=\"_blank\" rel=\"noopener\">Visit the blog</a></p>"]];
-var SK=[["Shopify",0],["Liquid",0],["GraphQL",0],["WordPress",0],["React",1],["Tailwind",1],["JavaScript",1],["Node.js",2],["Express",2],["Spring Boot",2],["MongoDB",3],["Git",3]];
+["Agile Digital Edge","WordPress · PHP · CSS · HTML","<p>WordPress blog and technical content publishing: long-form articles with clear heading hierarchy, lists and images, plus custom blog templates and child-theme files.</p><p><a href=\"https://blog.agiledigitaledge.com/\" target=\"_blank\" rel=\"noopener\">Visit the blog</a></p>"],
+["2020 Driving School","WordPress · LearnDash","<p>Online driving course built on LearnDash.</p><ul><li>Quiz access locked until required lessons are completed.</li><li>Completion email notifications.</li></ul>"],
+["CompressionZ","E-commerce","<p>E-commerce website development and customization.</p>"],
+["2020 CDL Driving","Web development","<p>Website development and customization.</p>"],
+["Dr. Restivo","Web development","<p>Website development and customization.</p>"],
+["Corvantis","Web development","<p>Website development and customization.</p>"],
+["Aurele","E-commerce","<p>E-commerce website development and customization.</p>"],
+["Demo Technologies","Web development","<p>Website development and customization.</p>"],
+["Global Ventage","Web development","<p>Website development and customization.</p>"],
+["M&M Bakery","Web development","<p>Website development and customization.</p>"],
+["Music Website","Web development · Search","<p>Web project with visual content and search functionality.</p>"]];
+var SK=[["Shopify",0],["Liquid",0],["GraphQL",0],["WordPress",0],["React",1],["Tailwind",1],["JavaScript",1],["Node.js",2],["Express",2],["Spring Boot",2],["MongoDB",3],["Git",3],["Shopify CLI",0],["Admin API",0],["Elementor",0],["LearnDash",0],["EComposer",0],["HTML5",1],["CSS3",1],["Vue.js",1],["Next.js",1],["Java",2],["Python",2],["REST APIs",2],["JWT",2],["reCAPTCHA",2],["Mongoose",3],["MySQL",3],["PostgreSQL",3],["SQL",3],["Linux",3],["GitHub",3],["Coolify",3]];
 var EX=[["2023","Linux Intern · GRRAS","<p>Linux administration, SQL basics and command-line workflows. Aug–Oct 2023.</p>"],["2024","B.Tech · RKGIT","<p>Computer Science Engineering, RKGIT Ghaziabad. Graduated 2024.</p>"],["Now","Web Developer · Agile Digital Edge","<p>Agile Digital Edge: e-commerce functionality, issue resolution, staging and production updates, stakeholder updates.</p>"]];
 var CT=[["Email","mailto:shivammishra070502@gmail.com"],["LinkedIn","https://www.linkedin.com/in/mishrashivam07/"],["GitHub","https://github.com/shoUdae"],["Resume","resume.pdf"]];
-var TOT=[6,12,3,4],found=[new Set,new Set,new Set,new Set],lv=0,pause=false,mx=320,my=0,keys={},parts=[],pops=[],stars=[],S={};
+var TOT=[16,33,3,4],found=[new Set,new Set,new Set,new Set],lv=0,pause=false,mx=320,my=0,keys={},parts=[],pops=[],stars=[],S={};
 for(var i=0;i<70;i++)stars.push({x:R()*W,y:R()*H,s:.2+R()*1.3});
 $("tk").innerHTML=(function(){var s="";for(var k=0;k<2;k++)SK.forEach(function(x){s+="<span>"+x[0]+"</span>"});return s})();
 var list=document.createElement("div");
@@ -107,30 +117,30 @@ EX.forEach(function(e){art(2,e[1],e[0],e[2])});
 art(3,"Contact","Open to full-stack and Shopify work",CT.map(function(c){return'<a class="btn" href="'+c[1]+'">'+c[0]+"</a>"}).join(""));
 function card(c,html){pause=true;$("db").innerHTML=html;$("dlg").style.setProperty("--c",COL[c]);$("dlg").showModal()}
 $("dlg").addEventListener("close",function(){pause=false});$("cl").onclick=function(){$("dlg").close()};
-function hud(){var t=0;$("tabs").innerHTML="";NM.forEach(function(n,i){t+=found[i].size;var b=document.createElement("button");b.className="tab";b.type="button";b.style.setProperty("--c",COL[i]);b.setAttribute("aria-pressed",i==lv);b.innerHTML="<b></b>"+n+" "+found[i].size+"/"+TOT[i];b.onclick=function(){go(i)};$("tabs").appendChild(b)});$("xp").style.width=t/25*100+"%";$("xpl").textContent="XP "+t+"/25"+(t==25?" · MAX":"")}
+function hud(){var t=0;$("tabs").innerHTML="";NM.forEach(function(n,i){t+=found[i].size;var b=document.createElement("button");b.className="tab";b.type="button";b.style.setProperty("--c",COL[i]);b.setAttribute("aria-pressed",i==lv);b.innerHTML="<b></b>"+n+" "+found[i].size+"/"+TOT[i];b.onclick=function(){go(i)};$("tabs").appendChild(b)});$("xp").style.width=t/56*100+"%";$("xpl").textContent="XP "+t+"/56"+(t==56?" · MAX":"")}
 function boom(x,y,c){for(var k=0;k<14;k++)parts.push({x:x,y:y,vx:(R()-.5)*6,vy:(R()-.5)*6,l:28,c:c})}
 function pop(x,y,t){pops.push({x:x,y:y,t:t,l:50})}
 function rr(x,y,w,h,r){g.beginPath();g.moveTo(x+r,y);g.arcTo(x+w,y,x+w,y+h,r);g.arcTo(x+w,y+h,x,y+h,r);g.arcTo(x,y+h,x,y,r);g.arcTo(x,y,x+w,y,r);g.closePath()}
-function txt(t,x,y,f,c){g.font=f;g.fillStyle=c;g.textAlign="center";g.textBaseline="middle";g.fillText(t,x,y)}
+function txt(t,x,y,f,c,m){g.font=f;g.fillStyle=c;g.textAlign="center";g.textBaseline="middle";g.fillText(t,x,y,m||1e4)}
 function pad(){return Math.max(0,Math.min(W-100,mx-50))}
 var L=[
 {how:"Projects: break a brick with the ball to open a project. Move to steer, tap to launch.",
- init:function(){S.br=PR.map(function(p,i){return{i:i,x:25+i%3*200,y:26+Math.floor(i/3)*82,a:1}});S.go=0;S.b={x:320,y:370,vx:3,vy:-4.3}},
+ init:function(){S.br=PR.map(function(p,i){return{i:i,x:25+i%4*150,y:20+Math.floor(i/4)*58,a:1}});S.go=0;S.b={x:320,y:370,vx:3,vy:-4.3}},
  upd:function(){var b=S.b,p=pad();if(!S.go){b.x=p+50;b.y=366;return}
   b.x+=b.vx;b.y+=b.vy;if(b.x<7||b.x>W-7)b.vx*=-1;if(b.y<7)b.vy=Math.abs(b.vy);
   if(b.vy>0&&b.y>=374&&b.y<392&&b.x>p-4&&b.x<p+104){b.vx=(b.x-p-50)/10;b.vy=-4.3}
   if(b.y>H+10)S.go=0;
-  S.br.forEach(function(k){if(!k.a||b.x+7<k.x||b.x-7>k.x+190||b.y+7<k.y||b.y-7>k.y+72)return;
-   var dx=Math.min(b.x+7-k.x,k.x+190-b.x+7),dy=Math.min(b.y+7-k.y,k.y+72-b.y+7);if(dx<dy)b.vx*=-1;else b.vy*=-1;
-   k.a=0;found[0].add(k.i);boom(k.x+95,k.y+36,COL[0]);hud();if(S.br.every(function(z){return!z.a}))S.go=0,S.br.forEach(function(z){z.a=1});card(0,"<h3>"+PR[k.i][0]+"</h3><p class='tag'>"+PR[k.i][1]+"</p>"+PR[k.i][2])})},
- drw:function(){S.br.forEach(function(k){if(!k.a)return;g.shadowColor=COL[0];g.shadowBlur=14;g.fillStyle=COL[0];rr(k.x,k.y,190,72,8);g.fill();g.shadowBlur=0;
-  g.fillStyle="rgba(255,255,255,.25)";rr(k.x+6,k.y+5,178,8,4);g.fill();txt(PR[k.i][0],k.x+95,k.y+40,"600 15px Sora,sans-serif","#12163a")});
+  S.br.forEach(function(k){if(!k.a||b.x+7<k.x||b.x-7>k.x+140||b.y+7<k.y||b.y-7>k.y+50)return;
+   var dx=Math.min(b.x+7-k.x,k.x+140-b.x+7),dy=Math.min(b.y+7-k.y,k.y+50-b.y+7);if(dx<dy)b.vx*=-1;else b.vy*=-1;
+   k.a=0;found[0].add(k.i);boom(k.x+70,k.y+25,COL[0]);hud();if(S.br.every(function(z){return!z.a}))S.go=0,S.br.forEach(function(z){z.a=1});card(0,"<h3>"+PR[k.i][0]+"</h3><p class='tag'>"+PR[k.i][1]+"</p>"+PR[k.i][2])})},
+ drw:function(){S.br.forEach(function(k){if(!k.a)return;g.shadowColor=COL[0];g.shadowBlur=14;g.fillStyle=COL[0];rr(k.x,k.y,140,50,8);g.fill();g.shadowBlur=0;
+  g.fillStyle="rgba(255,255,255,.25)";rr(k.x+5,k.y+4,130,6,3);g.fill();txt(PR[k.i][0],k.x+70,k.y+31,"600 12px Sora,sans-serif","#12163a",128)});
   g.fillStyle="#ecebff";rr(pad(),380,100,12,6);g.fill();g.beginPath();g.arc(S.b.x,S.b.y,7,0,7);g.fill();
   if(!S.go)txt("TAP OR SPACE TO LAUNCH",W/2,H-60,"400 11px 'Press Start 2P',monospace","#cfd2ff")},
  click:function(){S.go=1},press:function(){S.go=1}},
 {how:"Skills: catch the falling skills with your paddle to add them to your stack.",
  init:function(){S.f=[];S.t=0},
- upd:function(){var p=pad();S.t++;if(S.t%34==0){var k=Math.floor(R()*SK.length);S.f.push({k:k,x:50+R()*(W-100),y:-20,v:1.6+R()*1.4})}
+ upd:function(){var p=pad();S.t++;if(S.t%34==0){var un=[];SK.forEach(function(x,j){if(!found[1].has(x[0]))un.push(j)});var k=un.length&&R()<.75?un[Math.floor(R()*un.length)]:Math.floor(R()*SK.length);S.f.push({k:k,x:50+R()*(W-100),y:-20,v:1.6+R()*1.4})}
   S.f.forEach(function(o){o.y+=o.v;if(o.y>372&&o.y<396&&o.x>p-30&&o.x<p+130&&!o.d){o.d=1;var s=SK[o.k][0];boom(o.x,o.y,COL[SK[o.k][1]]);pop(o.x,360,"+"+s);if(!found[1].has(s)){found[1].add(s);var c=document.createElement("span");c.style.background=COL[SK[o.k][1]];c.textContent=s;$("chips").appendChild(c);hud()}}});
   S.f=S.f.filter(function(o){return o.y<H+30&&!o.d})},
  drw:function(){S.f.forEach(function(o){var c=COL[SK[o.k][1]];g.shadowColor=c;g.shadowBlur=12;g.fillStyle=c;rr(o.x-48,o.y-16,96,32,16);g.fill();g.shadowBlur=0;txt(SK[o.k][0],o.x,o.y+1,"600 14px Sora,sans-serif","#12163a")});
@@ -166,7 +176,7 @@ function frame(){if(!pause)L[lv].upd();
  parts.forEach(function(p){p.x+=p.vx;p.y+=p.vy;p.l--;g.globalAlpha=p.l/28;g.fillStyle=p.c;g.fillRect(p.x,p.y,5,5)});g.globalAlpha=1;parts=parts.filter(function(p){return p.l>0});
  pops.forEach(function(p){p.y-=.7;p.l--;g.globalAlpha=p.l/50;txt(p.t,p.x,p.y,"600 15px Sora,sans-serif","#fff")});g.globalAlpha=1;pops=pops.filter(function(p){return p.l>0});
  requestAnimationFrame(frame)}
-var PS=[["Shopify","Liquid","JavaScript","Git"],["Shopify","Liquid","Git"],["React","Tailwind","JavaScript","Node.js","Express","MongoDB","Git"],["Spring Boot"],[],["WordPress"]],sel=null;
+var PS=[["Shopify","Liquid","JavaScript","Git"],["Shopify","Liquid","Git"],["React","Tailwind","JavaScript","Node.js","Express","MongoDB","Mongoose","JWT","reCAPTCHA","Coolify","GitHub","HTML5","CSS3","Git"],["Spring Boot","Java","REST APIs"],["Python"],["WordPress"],["WordPress","LearnDash"],[],[],[],[],[],[],[],[],[]],sel=null;
 var io=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;var t=e.target;t.classList.add("in");if(t.dataset.n){var n=+t.dataset.n,s=performance.now();(function f(now){var p=Math.min(1,(now-s)/900);t.textContent=Math.round(n*p);if(p<1)requestAnimationFrame(f)})(s)}io.unobserve(t)})},{threshold:.3});
 function filt(){var n=0;[].forEach.call($("skl").children,function(b){b.setAttribute("aria-pressed",b.textContent==sel)});[].forEach.call($("pg").children,function(a){var on=!sel||a.dataset.s.split("|").indexOf(sel)>-1;if(sel&&on)n++;a.classList.toggle("dim",!on)});$("sel").textContent=sel?sel+" appears in "+n+" of "+PR.length+" projects.":"Tap a skill to highlight the projects that use it. Tap a project to open it."}
 SK.forEach(function(s){var b=document.createElement("button");b.type="button";b.className="sc";b.style.setProperty("--c",COL[s[1]]);b.textContent=s[0];b.setAttribute("aria-pressed","false");b.onclick=function(){sel=sel==s[0]?null:s[0];filt()};$("skl").appendChild(b)});

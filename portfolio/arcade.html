@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Shivam Mishra — Full-Stack Developer · Shopify &amp; E-commerce</title>
+<meta name="description" content="Playable portfolio of Shivam Mishra, a full-stack developer specializing in Shopify, e-commerce and MERN applications. Four mini-games, one per section.">
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Sora:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f3f1ff;--fg:#14183c;--mute:#4b5085;--card:#fff;--line:#d6d3f2;--pink:#ff5d8f;--amber:#ffc233;--mint:#3ddc97;--sky:#4cc9f0;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b0e27;--fg:#ecebff;--mute:#a4a8d6;--card:#151a42;--line:#2a3070;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0b0e27;--fg:#ecebff;--mute:#a4a8d6;--card:#151a42;--line:#2a3070;color-scheme:dark}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--fg);font:400 16px/1.6 Sora,system-ui,sans-serif}
+main{max-width:980px;margin:0 auto;padding:26px 16px 60px}
+h1{font:400 clamp(20px,4.6vw,36px)/1.3 "Press Start 2P",monospace;margin:0 0 12px;background:linear-gradient(90deg,var(--pink),var(--amber),var(--mint),var(--sky),var(--pink));background-size:300% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:sh 8s linear infinite}
+@keyframes sh{to{background-position:300% 0}}
+h2{font:400 14px/1.5 "Press Start 2P",monospace;margin:44px 0 16px}
+.sub{font-size:clamp(16px,2.4vw,19px);max-width:62ch;color:var(--mute);margin:0 0 16px}
+.tick{overflow:hidden;white-space:nowrap;border-block:1px solid var(--line);margin:0 0 18px;font-size:14px;color:var(--mute)}
+.tick div{display:inline-block;padding:7px 0;animation:mq 30s linear infinite}
+.tick span{margin:0 18px}
+@keyframes mq{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.tick div,h1{animation:none}}
+.hud{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:10px}
+.tab{font:600 14px Sora,sans-serif;border:2px solid var(--line);background:var(--card);color:var(--fg);padding:8px 14px;border-radius:8px;cursor:pointer}
+.tab[aria-pressed=true]{border-color:var(--c);box-shadow:0 0 0 2px var(--c)}
+.tab b{display:inline-block;width:10px;height:10px;border-radius:2px;background:var(--c);margin-right:8px}
+.xp{flex:1;min-width:150px;height:14px;border-radius:7px;background:var(--line);overflow:hidden}
+.xp i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--pink),var(--amber),var(--mint),var(--sky));transition:width .5s}
+.xpl{font:400 10px "Press Start 2P",monospace;color:var(--mute)}
+.arcade{background:#12163a;border:3px solid #2b3282;border-radius:14px;padding:10px;box-shadow:0 0 0 3px #0b0e27,0 0 50px rgba(76,201,240,.18)}
+canvas{display:block;width:100%;height:auto;touch-action:none;border-radius:8px}
+.bar{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center;margin-top:10px;color:#cfd2ff;font-size:14px}
+button.s{font:600 13px Sora,sans-serif;border:2px solid #6f78ee;background:transparent;color:#e7e8ff;padding:7px 13px;border-radius:8px;cursor:pointer}
+button.s:hover{background:#6f78ee;color:#0b0e27}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px;min-height:28px}
+.chips span{font-size:13px;padding:2px 10px;border-radius:99px;color:#12163a;font-weight:600}
+:focus-visible{outline:3px solid var(--sky);outline-offset:2px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+article{background:var(--card);border:1px solid var(--line);border-left:8px solid var(--c);border-radius:10px;padding:14px 18px}
+article p,dialog p{margin:6px 0}.tag{font-size:13px;color:var(--mute)}
+ul{padding-left:20px;margin:8px 0}a{text-underline-offset:3px}
+.btn{font:600 14px Sora,sans-serif;border:2px solid var(--fg);background:var(--card);color:var(--fg);padding:8px 15px;border-radius:8px;text-decoration:none;display:inline-block;margin:4px 6px 0 0}
+.btn:hover{background:var(--fg);color:var(--bg)}
+dialog{max-width:min(560px,92vw);width:100%;border:3px solid var(--c,var(--fg));border-radius:14px;background:var(--card);color:var(--fg);padding:22px 24px;animation:pop .25s}
+@keyframes pop{from{transform:scale(.9);opacity:0}}
+dialog::backdrop{background:rgba(8,10,35,.75)}
+dialog h3,article h3{margin:0 0 2px;font-size:20px}
+.x{float:right;margin:-6px -8px 0 10px;font:600 14px Sora;border:2px solid var(--fg);background:var(--card);color:var(--fg);border-radius:8px;padding:5px 12px;cursor:pointer}
+.st{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:26px}.st div{flex:1;min-width:110px;border:1px solid var(--line);background:var(--card);border-radius:10px;padding:12px 16px;color:var(--mute);font-size:14px}.st b{display:block;font:400 22px "Press Start 2P",monospace;color:var(--fg);margin-bottom:8px}
+.sh{margin:36px 0 12px;font-size:18px}
+.sk{display:flex;flex-wrap:wrap;gap:8px}.sc{font:600 14px Sora,sans-serif;border:2px solid var(--c);background:transparent;color:var(--fg);padding:5px 14px;border-radius:99px;cursor:pointer;transition:transform .2s,background .2s}.sc:hover{transform:translateY(-2px)}.sc[aria-pressed=true]{background:var(--c);color:#12163a}
+.pc{position:relative;background:var(--card);border:1px solid var(--line);border-left:8px solid var(--c);border-radius:10px;overflow:hidden;transition:opacity .3s,transform .3s,filter .3s}
+.pc::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .3s;background:radial-gradient(240px circle at var(--mx,50%) var(--my,50%),color-mix(in srgb,var(--c) 28%,transparent),transparent)}.pc:hover::before{opacity:1}
+.pc.dim{opacity:.28;filter:grayscale(1);transform:scale(.98)}
+.ph{all:unset;box-sizing:border-box;display:flex;width:100%;justify-content:space-between;gap:10px;padding:14px 18px;cursor:pointer}.ph:focus-visible{outline:3px solid var(--sky);outline-offset:-3px}
+.ph .t{display:block;font-weight:600;font-size:18px}.ph i{font:600 24px Sora,sans-serif;transition:transform .3s}.open .ph i{transform:rotate(45deg)}
+.pb{display:grid;grid-template-rows:0fr;transition:grid-template-rows .35s}.open .pb{grid-template-rows:1fr}.pb>div{overflow:hidden;padding:0 18px}.open .pb>div{padding-bottom:12px}
+.tl{list-style:none;margin:0;padding:0 0 0 26px;border-left:3px solid var(--line)}.tl li{position:relative;margin-bottom:22px;opacity:0;transform:translateX(-18px);transition:opacity .6s,transform .6s}.tl li.in{opacity:1;transform:none}.tl li::before{content:"";position:absolute;left:-35px;top:6px;width:14px;height:14px;border-radius:50%;background:var(--mint);box-shadow:0 0 0 4px var(--bg)}.tl b{font:400 11px "Press Start 2P",monospace;color:var(--mute)}.tl h3{margin:6px 0 0;font-size:18px}
+@media (prefers-reduced-motion:reduce){.tl li,.pb,.pc{transition:none}}
+footer{color:var(--mute);font-size:14px;margin-top:44px}
+</style>
+</head>
+<body>
+<main>
+<p><a href="./index.html">&larr; Back to the main portfolio</a></p>
+<h1>Shivam Mishra</h1>
+<p class="sub">Full-stack developer building Shopify storefronts, e-commerce features and MERN apps. Four levels, four mini-games: play to unlock my work, or <a href="#plain">skip to the full portfolio</a>.</p>
+<div class="tick" aria-hidden="true"><div id="tk"></div></div>
+<div class="hud"><span id="tabs" style="display:contents"></span><div class="xp"><i id="xp"></i></div><span class="xpl" id="xpl">XP 0/25</span></div>
+<div class="arcade">
+<canvas id="c" width="640" height="420" aria-label="Interactive mini-game. All of its content is also listed below."></canvas>
+<div class="bar"><span id="how"></span><span><button class="s" id="rs" type="button">Restart level</button> <button class="s" id="sk" type="button">Skip to portfolio</button></span></div>
+<div class="chips" id="chips"></div>
+</div>
+<section id="plain"><h2>The full portfolio</h2>
+<div class="st"><div><b data-n="16">0</b>projects</div><div><b data-n="33">0</b>skills</div><div><b data-n="3">0</b>milestones</div></div>
+<h3 class="sh">Pick a skill, see where I used it</h3>
+<div class="sk" id="skl"></div><p class="tag" id="sel" aria-live="polite"></p>
+<div class="grid" id="pg"></div>
+<h3 class="sh">Journey</h3><ol class="tl" id="tl"></ol>
+<h3 class="sh">Get in touch</h3><div id="ct"></div></section>
+<footer>© 2026 Shivam Mishra · rshivam.xyz</footer>
+</main>
+<dialog id="dlg"><button class="x" id="cl" type="button">Close</button><div id="db"></div></dialog>
+<script>
+var $=function(i){return document.getElementById(i)},cv=$("c"),g=cv.getContext("2d"),W=640,H=420,R=Math.random;
+var COL=["#ff5d8f","#ffc233","#3ddc97","#4cc9f0"],NM=["Projects","Skills","Journey","Contact"];
+var PR=[["HighQualityTransfers","Shopify · Horizon · Liquid · JavaScript · Git","<p>Custom Shopify development for an apparel and transfer printing store.</p><ul><li>Conditional product pages that hide size, price and quantity for specific products while keeping the upload and Add to Cart flow.</li><li>DTF, UV DTF and sublimation gang sheet product behavior.</li><li>Resolved merge conflicts in product templates involving app blocks.</li><li>Worked from a staging branch synced with GitHub.</li></ul>"],
+["Usmara","Shopify · Liquid · Shopify CLI · Git","<p>Theme development with a separate staging workflow.</p><ul><li>Pulled the theme with Shopify CLI.</li><li>Kept draft and live themes separate, matched to development and production branches.</li><li>Tested changes before they reached the live store.</li></ul>"],
+["HR Recruitment Portal","MongoDB · Express · React · Node.js · Vite · Tailwind","<p>Recruitment platform with an admin dashboard and public job portal.</p><ul><li>Role-based admin and candidate flows with JWT authentication.</li><li>Job creation, editing, archiving and deletion.</li><li>Resume uploads with Multer.</li><li>Google reCAPTCHA v2 with server-side verification and tests.</li><li>Separate frontend and backend repositories, deployed with Coolify.</li></ul>"],
+["Doctor–Patient API","Java · Spring Boot · REST","<p>A backend project for doctor and patient workflows, built with Spring Boot.</p>"],
+["AI Discord Bot","Python · AI integration · Replit","<p>A personal project: a Python Discord bot with AI features, built on Replit.</p>"],
+["Agile Digital Edge","WordPress · PHP · CSS · HTML","<p>WordPress blog and technical content publishing: long-form articles with clear heading hierarchy, lists and images, plus custom blog templates and child-theme files.</p><p><a href=\"https://blog.agiledigitaledge.com/\" target=\"_blank\" rel=\"noopener\">Visit the blog</a></p>"],
+["2020 Driving School","WordPress · LearnDash","<p>Online driving course built on LearnDash.</p><ul><li>Quiz access locked until required lessons are completed.</li><li>Completion email notifications.</li></ul>"],
+["CompressionZ","E-commerce","<p>E-commerce website development and customization.</p>"],
+["2020 CDL Driving","Web development","<p>Website development and customization.</p>"],
+["Dr. Restivo","Web development","<p>Website development and customization.</p>"],
+["Corvantis","Web development","<p>Website development and customization.</p>"],
+["Aurele","E-commerce","<p>E-commerce website development and customization.</p>"],
+["Demo Technologies","Web development","<p>Website development and customization.</p>"],
+["Global Ventage","Web development","<p>Website development and customization.</p>"],
+["M&M Bakery","Web development","<p>Website development and customization.</p>"],
+["Music Website","Web development · Search","<p>Web project with visual content and search functionality.</p>"]];
+var SK=[["Shopify",0],["Liquid",0],["GraphQL",0],["WordPress",0],["React",1],["Tailwind",1],["JavaScript",1],["Node.js",2],["Express",2],["Spring Boot",2],["MongoDB",3],["Git",3],["Shopify CLI",0],["Admin API",0],["Elementor",0],["LearnDash",0],["EComposer",0],["HTML5",1],["CSS3",1],["Vue.js",1],["Next.js",1],["Java",2],["Python",2],["REST APIs",2],["JWT",2],["reCAPTCHA",2],["Mongoose",3],["MySQL",3],["PostgreSQL",3],["SQL",3],["Linux",3],["GitHub",3],["Coolify",3]];
+var EX=[["2023","Linux Intern · GRRAS","<p>Linux administration, SQL basics and command-line workflows. Aug–Oct 2023.</p>"],["2024","B.Tech · RKGIT","<p>Computer Science Engineering, RKGIT Ghaziabad. Graduated 2024.</p>"],["Now","Web Developer · Agile Digital Edge","<p>Agile Digital Edge: e-commerce functionality, issue resolution, staging and production updates, stakeholder updates.</p>"]];
+var CT=[["Email","mailto:shivammishra070502@gmail.com"],["LinkedIn","https://www.linkedin.com/in/mishrashivam07/"],["GitHub","https://github.com/shoUdae"],["Resume","resume.pdf"]];
+var TOT=[16,33,3,4],found=[new Set,new Set,new Set,new Set],lv=0,pause=false,mx=320,my=0,keys={},parts=[],pops=[],stars=[],S={};
+for(var i=0;i<70;i++)stars.push({x:R()*W,y:R()*H,s:.2+R()*1.3});
+$("tk").innerHTML=(function(){var s="";for(var k=0;k<2;k++)SK.forEach(function(x){s+="<span>"+x[0]+"</span>"});return s})();
+var list=document.createElement("div");
+function art(c,t,tag,b){var a=document.createElement("article");a.style.setProperty("--c",COL[c]);a.innerHTML="<h3>"+t+"</h3><p class='tag'>"+tag+"</p>"+b;list.appendChild(a)}
+PR.forEach(function(p){art(0,p[0],p[1],p[2])});
+art(1,"Skills","E-commerce, frontend, backend",'<ul><li>Shopify, Liquid, GraphQL, WordPress</li><li>React, Tailwind CSS, JavaScript</li><li>Node.js, Express, Spring Boot</li><li>MongoDB, SQL, Git</li></ul>');
+EX.forEach(function(e){art(2,e[1],e[0],e[2])});
+art(3,"Contact","Open to full-stack and Shopify work",CT.map(function(c){return'<a class="btn" href="'+c[1]+'">'+c[0]+"</a>"}).join(""));
+function card(c,html){pause=true;$("db").innerHTML=html;$("dlg").style.setProperty("--c",COL[c]);$("dlg").showModal()}
+$("dlg").addEventListener("close",function(){pause=false});$("cl").onclick=function(){$("dlg").close()};
+function hud(){var t=0;$("tabs").innerHTML="";NM.forEach(function(n,i){t+=found[i].size;var b=document.createElement("button");b.className="tab";b.type="button";b.style.setProperty("--c",COL[i]);b.setAttribute("aria-pressed",i==lv);b.innerHTML="<b></b>"+n+" "+found[i].size+"/"+TOT[i];b.onclick=function(){go(i)};$("tabs").appendChild(b)});$("xp").style.width=t/56*100+"%";$("xpl").textContent="XP "+t+"/56"+(t==56?" · MAX":"")}
+function boom(x,y,c){for(var k=0;k<14;k++)parts.push({x:x,y:y,vx:(R()-.5)*6,vy:(R()-.5)*6,l:28,c:c})}
+function pop(x,y,t){pops.push({x:x,y:y,t:t,l:50})}
+function rr(x,y,w,h,r){g.beginPath();g.moveTo(x+r,y);g.arcTo(x+w,y,x+w,y+h,r);g.arcTo(x+w,y+h,x,y+h,r);g.arcTo(x,y+h,x,y,r);g.arcTo(x,y,x+w,y,r);g.closePath()}
+function txt(t,x,y,f,c,m){g.font=f;g.fillStyle=c;g.textAlign="center";g.textBaseline="middle";g.fillText(t,x,y,m||1e4)}
+function pad(){return Math.max(0,Math.min(W-100,mx-50))}
+var L=[
+{how:"Projects: break a brick with the ball to open a project. Move to steer, tap to launch.",
+ init:function(){S.br=PR.map(function(p,i){return{i:i,x:25+i%4*150,y:20+Math.floor(i/4)*58,a:1}});S.go=0;S.b={x:320,y:370,vx:3,vy:-4.3}},
+ upd:function(){var b=S.b,p=pad();if(!S.go){b.x=p+50;b.y=366;return}
+  b.x+=b.vx;b.y+=b.vy;if(b.x<7||b.x>W-7)b.vx*=-1;if(b.y<7)b.vy=Math.abs(b.vy);
+  if(b.vy>0&&b.y>=374&&b.y<392&&b.x>p-4&&b.x<p+104){b.vx=(b.x-p-50)/10;b.vy=-4.3}
+  if(b.y>H+10)S.go=0;
+  S.br.forEach(function(k){if(!k.a||b.x+7<k.x||b.x-7>k.x+140||b.y+7<k.y||b.y-7>k.y+50)return;
+   var dx=Math.min(b.x+7-k.x,k.x+140-b.x+7),dy=Math.min(b.y+7-k.y,k.y+50-b.y+7);if(dx<dy)b.vx*=-1;else b.vy*=-1;
+   k.a=0;found[0].add(k.i);boom(k.x+70,k.y+25,COL[0]);hud();if(S.br.every(function(z){return!z.a}))S.go=0,S.br.forEach(function(z){z.a=1});card(0,"<h3>"+PR[k.i][0]+"</h3><p class='tag'>"+PR[k.i][1]+"</p>"+PR[k.i][2])})},
+ drw:function(){S.br.forEach(function(k){if(!k.a)return;g.shadowColor=COL[0];g.shadowBlur=14;g.fillStyle=COL[0];rr(k.x,k.y,140,50,8);g.fill();g.shadowBlur=0;
+  g.fillStyle="rgba(255,255,255,.25)";rr(k.x+5,k.y+4,130,6,3);g.fill();txt(PR[k.i][0],k.x+70,k.y+31,"600 12px Sora,sans-serif","#12163a",128)});
+  g.fillStyle="#ecebff";rr(pad(),380,100,12,6);g.fill();g.beginPath();g.arc(S.b.x,S.b.y,7,0,7);g.fill();
+  if(!S.go)txt("TAP OR SPACE TO LAUNCH",W/2,H-60,"400 11px 'Press Start 2P',monospace","#cfd2ff")},
+ click:function(){S.go=1},press:function(){S.go=1}},
+{how:"Skills: catch the falling skills with your paddle to add them to your stack.",
+ init:function(){S.f=[];S.t=0},
+ upd:function(){var p=pad();S.t++;if(S.t%34==0){var un=[];SK.forEach(function(x,j){if(!found[1].has(x[0]))un.push(j)});var k=un.length&&R()<.75?un[Math.floor(R()*un.length)]:Math.floor(R()*SK.length);S.f.push({k:k,x:50+R()*(W-100),y:-20,v:1.6+R()*1.4})}
+  S.f.forEach(function(o){o.y+=o.v;if(o.y>372&&o.y<396&&o.x>p-30&&o.x<p+130&&!o.d){o.d=1;var s=SK[o.k][0];boom(o.x,o.y,COL[SK[o.k][1]]);pop(o.x,360,"+"+s);if(!found[1].has(s)){found[1].add(s);var c=document.createElement("span");c.style.background=COL[SK[o.k][1]];c.textContent=s;$("chips").appendChild(c);hud()}}});
+  S.f=S.f.filter(function(o){return o.y<H+30&&!o.d})},
+ drw:function(){S.f.forEach(function(o){var c=COL[SK[o.k][1]];g.shadowColor=c;g.shadowBlur=12;g.fillStyle=c;rr(o.x-48,o.y-16,96,32,16);g.fill();g.shadowBlur=0;txt(SK[o.k][0],o.x,o.y+1,"600 14px Sora,sans-serif","#12163a")});
+  g.fillStyle="#ecebff";rr(pad(),386,100,12,6);g.fill()},click:function(){},press:function(){}},
+{how:"Journey: press Space, ↑ or tap to jump. Dodge blocks and grab the milestone coins.",
+ init:function(){S.y=340;S.v=0;S.o=[];S.c=null;S.t=0;S.fl=0},
+ upd:function(){S.t++;S.v+=.62;S.y=Math.min(340,S.y+S.v);if(S.y>=340)S.v=0;
+  if(S.t%95==0)S.o.push({x:W+20,h:28+R()*22});
+  var rem=EX.map(function(e,i){return i}).filter(function(i){return!found[2].has(i)});
+  if(!S.c&&rem.length&&S.t%230==0)S.c={x:W+20,i:rem[0]};
+  S.o.forEach(function(o){o.x-=4;if(o.x<118&&o.x+26>90&&S.y>340-o.h&&!o.d){o.d=1;S.fl=14;pop(100,300,"Oof!")}});S.o=S.o.filter(function(o){return o.x>-40&&!o.d});
+  if(S.c){S.c.x-=4;if(Math.abs(S.c.x-104)<30&&S.y<315&&S.y>225){found[2].add(S.c.i);boom(S.c.x,265,COL[2]);hud();var i=S.c.i;S.c=null;card(2,"<h3>"+EX[i][1]+"</h3><p class='tag'>"+EX[i][0]+"</p>"+EX[i][2])}else if(S.c.x<-30)S.c=null}
+  if(S.fl>0)S.fl--},
+ drw:function(){g.fillStyle="#2b3282";g.fillRect(0,340,W,3);for(var x=-(S.t*4%40);x<W;x+=40)g.fillRect(x,350,20,2);
+  S.o.forEach(function(o){g.fillStyle=COL[0];rr(o.x,340-o.h,26,o.h,4);g.fill()});
+  if(S.c){g.shadowColor=COL[2];g.shadowBlur=16;g.fillStyle=COL[2];g.beginPath();g.arc(S.c.x,268,18,0,7);g.fill();g.shadowBlur=0;txt(EX[S.c.i][0],S.c.x,269,"600 12px Sora,sans-serif","#12163a")}
+  g.fillStyle=S.fl%4>1?"#fff":COL[3];rr(90,S.y-36,28,36,6);g.fill();g.fillStyle="#12163a";g.fillRect(104,S.y-28,6,6)},
+ click:function(){if(S.y>=340)S.v=-12.2},press:function(){if(S.y>=340)S.v=-12.2}},
+{how:"Contact: click a bouncing bubble to open that contact option.",
+ init:function(){S.b=CT.map(function(c,i){return{i:i,x:90+i*140,y:100+i*50,vx:(R()<.5?-1:1)*(1.2+R()),vy:(R()<.5?-1:1)*(1+R())}})},
+ upd:function(){S.b.forEach(function(b){b.x+=b.vx;b.y+=b.vy;if(b.x<52||b.x>W-52)b.vx*=-1;if(b.y<52||b.y>H-52)b.vy*=-1})},
+ drw:function(){S.b.forEach(function(b){g.shadowColor=COL[3];g.shadowBlur=22;g.fillStyle=COL[3];g.beginPath();g.arc(b.x,b.y,50,0,7);g.fill();g.shadowBlur=0;txt(CT[b.i][0]+(found[3].has(b.i)?" ✓":""),b.x,b.y,"600 15px Sora,sans-serif","#12163a")})},
+ click:function(x,y){S.b.forEach(function(b){if(Math.hypot(x-b.x,y-b.y)<50){found[3].add(b.i);hud();boom(b.x,b.y,COL[3]);var c=CT[b.i];card(3,"<h3>"+c[0]+"</h3><p>Open this link to connect.</p><a class='btn' href='"+c[1]+"' target='_blank' rel='noopener'>Open "+c[0]+"</a>")}})},press:function(){}}];
+function go(i){lv=i;S={};L[i].init();$("how").textContent=L[i].how;$("chips").innerHTML="";if(i==1)found[1].forEach(function(s){var k=SK.filter(function(x){return x[0]==s})[0],c=document.createElement("span");c.style.background=COL[k[1]];c.textContent=s;$("chips").appendChild(c)});hud()}
+function pt(e){var r=cv.getBoundingClientRect();mx=(e.clientX-r.left)*W/r.width;my=(e.clientY-r.top)*H/r.height}
+cv.addEventListener("pointermove",pt);cv.addEventListener("pointerdown",function(e){pt(e);L[lv].click(mx,my)});
+addEventListener("keydown",function(e){if($("dlg").open)return;if(e.key=="ArrowLeft"){mx=Math.max(0,mx-18);e.preventDefault()}if(e.key=="ArrowRight"){mx=Math.min(W,mx+18);e.preventDefault()}if((e.key==" "||e.key=="ArrowUp")&&document.activeElement==document.body){e.preventDefault();L[lv].press()}});
+$("rs").onclick=function(){go(lv)};$("sk").onclick=function(){$("plain").scrollIntoView({behavior:"smooth"})};
+function frame(){if(!pause)L[lv].upd();
+ g.fillStyle="#12163a";g.fillRect(0,0,W,H);g.fillStyle="#9aa2ff";
+ stars.forEach(function(s){s.x-=s.s*(lv==2?3:.6);if(s.x<0)s.x=W;g.globalAlpha=.25+s.s/2;g.fillRect(s.x,s.y,s.s*1.6,s.s*1.6)});g.globalAlpha=1;
+ L[lv].drw();
+ parts.forEach(function(p){p.x+=p.vx;p.y+=p.vy;p.l--;g.globalAlpha=p.l/28;g.fillStyle=p.c;g.fillRect(p.x,p.y,5,5)});g.globalAlpha=1;parts=parts.filter(function(p){return p.l>0});
+ pops.forEach(function(p){p.y-=.7;p.l--;g.globalAlpha=p.l/50;txt(p.t,p.x,p.y,"600 15px Sora,sans-serif","#fff")});g.globalAlpha=1;pops=pops.filter(function(p){return p.l>0});
+ requestAnimationFrame(frame)}
+var PS=[["Shopify","Liquid","JavaScript","Git"],["Shopify","Liquid","Git"],["React","Tailwind","JavaScript","Node.js","Express","MongoDB","Mongoose","JWT","reCAPTCHA","Coolify","GitHub","HTML5","CSS3","Git"],["Spring Boot","Java","REST APIs"],["Python"],["WordPress"],["WordPress","LearnDash"],[],[],[],[],[],[],[],[],[]],sel=null;
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;var t=e.target;t.classList.add("in");if(t.dataset.n){var n=+t.dataset.n,s=performance.now();(function f(now){var p=Math.min(1,(now-s)/900);t.textContent=Math.round(n*p);if(p<1)requestAnimationFrame(f)})(s)}io.unobserve(t)})},{threshold:.3});
+function filt(){var n=0;[].forEach.call($("skl").children,function(b){b.setAttribute("aria-pressed",b.textContent==sel)});[].forEach.call($("pg").children,function(a){var on=!sel||a.dataset.s.split("|").indexOf(sel)>-1;if(sel&&on)n++;a.classList.toggle("dim",!on)});$("sel").textContent=sel?sel+" appears in "+n+" of "+PR.length+" projects.":"Tap a skill to highlight the projects that use it. Tap a project to open it."}
+SK.forEach(function(s){var b=document.createElement("button");b.type="button";b.className="sc";b.style.setProperty("--c",COL[s[1]]);b.textContent=s[0];b.setAttribute("aria-pressed","false");b.onclick=function(){sel=sel==s[0]?null:s[0];filt()};$("skl").appendChild(b)});
+PR.forEach(function(p,i){var a=document.createElement("article");a.className="pc";a.style.setProperty("--c",COL[0]);a.dataset.s=PS[i].join("|");a.innerHTML='<button class="ph" type="button" aria-expanded="false"><span><span class="t">'+p[0]+'</span><span class="tag">'+p[1]+'</span></span><i aria-hidden="true">+</i></button><div class="pb"><div>'+p[2]+'</div></div>';var h=a.firstChild;h.onclick=function(){h.setAttribute("aria-expanded",a.classList.toggle("open"))};a.addEventListener("pointermove",function(e){var r=a.getBoundingClientRect();a.style.setProperty("--mx",e.clientX-r.left+"px");a.style.setProperty("--my",e.clientY-r.top+"px")});$("pg").appendChild(a)});
+EX.forEach(function(e){var l=document.createElement("li");l.innerHTML="<b>"+e[0]+"</b><h3>"+e[1]+"</h3>"+e[2];$("tl").appendChild(l);io.observe(l)});
+[].forEach.call(document.querySelectorAll("[data-n]"),function(b){io.observe(b)});
+$("ct").innerHTML=CT.map(function(c){return'<a class="btn" href="'+c[1]+'">'+c[0]+"</a>"}).join("")+'<button class="btn" id="cp" type="button">Copy email</button>';
+$("cp").onclick=function(){var b=this;try{navigator.clipboard.writeText(CT[0][1].replace("mailto:",""));b.textContent="Copied"}catch(x){}setTimeout(function(){b.textContent="Copy email"},1500)};
+filt();go(0);frame();
+</script>
+</body>
+</html>
